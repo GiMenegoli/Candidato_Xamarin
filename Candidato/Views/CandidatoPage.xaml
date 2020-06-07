@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:Control="Candidato.Views"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
              x:Class="Candidato.Views.CandidatoPage"
              xmlns:vm="clr-namespace:Candidato.ViewModel"
-             Title="Candidato">
+             Title="Candidatos">
+    
+    
     <ContentPage.BindingContext>
         <vm:CandidatoViewModel></vm:CandidatoViewModel>
     </ContentPage.BindingContext>
@@ -13,15 +14,15 @@
         <StackLayout>
             <Entry x:Name="EntryNome"
                    Placeholder="Digite o Nome"
-                   Text="{Binding NomeCandidato}"></Entry>
+                   Text="{Binding Candidato.NomeCandidato}"></Entry>
 
             <Entry x:Name="EntrySobrenome"
                    Placeholder="Digite o Sobrenome"
-                    Text="{Binding SobrenomeCandidato}"></Entry>
+                    Text="{Binding Candidato.SobrenomeCandidato}"></Entry>
 
             <Entry x:Name="EntryEmail"
                    Placeholder="Digite o e-mail"
-                    Text="{Binding EmailCandidato}"></Entry>
+                    Text="{Binding Candidato.EmailCandidato}"></Entry>
 
             <Label Text="Resumo Profissional"></Label>
 
@@ -29,14 +30,14 @@
                     HeightRequest="50"
                     FontSize="Medium"
                     BackgroundColor="LightGray"
-                    Text="{Binding EditorProfissional}"></Editor>
+                    Text="{Binding Candidato.EditorProfissional}"></Editor>
 
             <StackLayout Orientation="Horizontal">
                 <Label Text="Pretenção R$ (milhares): "></Label>
-                <Label Text="{Binding PretencaoCandidato}" BackgroundColor="Silver" HorizontalOptions="FillAndExpand" FontSize="30"></Label>
+                <Label Text="{Binding Candidato.PretencaoCandidato}" BackgroundColor="Silver" HorizontalOptions="FillAndExpand" FontSize="30"></Label>
             </StackLayout>
 
-            <Slider x:Name="SliderPretencao" Minimum="0" Maximum="20" Value="{Binding PretencaoCandidato}"></Slider>
+            <Slider x:Name="SliderPretencao" Minimum="0" Maximum="20" Value="{Binding Candidato.PretencaoCandidato}"></Slider>
 
             <Button x:Name="BotaoGravar" 
                     Text="Gravar" 

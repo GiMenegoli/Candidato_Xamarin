@@ -8,7 +8,7 @@ namespace Candidato.Model
 {
     public class CandidatoModel : INotifyPropertyChanged
     {
-
+       
         private String nomeCandidato;
         public String NomeCandidato
         {
@@ -80,17 +80,10 @@ namespace Candidato.Model
             }
         }
 
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        public CandidatoModel()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        
-       public CandidatoModel()
-        {
-        }
 
+        }
         public CandidatoModel(String NomeCandidato, String SobrenomeCandidato, String EmailCandidato, String EditorProfissional, int PretencaoCandidato)
         {
             this.nomeCandidato = NomeCandidato;
@@ -99,6 +92,16 @@ namespace Candidato.Model
             this.editorProfissional = EditorProfissional;
             this.pretencaoCandidato = PretencaoCandidato;
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+               
+ 
+
+       
      
     }
 }

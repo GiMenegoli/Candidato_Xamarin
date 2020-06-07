@@ -12,24 +12,39 @@ using Candidato.Model;
 
 namespace Candidato.ViewModel
 {
-    public class CandidatoViewModel
+    public class CandidatoViewModel : INotifyPropertyChanged
     {
         protected CandidatoPage candidatoPage;
-        CandidatoModel cand = new CandidatoModel();
-        //protected CandidatoModel candidatoModel;
+        private CandidatoModel candidato = new CandidatoModel();
+
+        public CandidatoModel _candidato;
+        public CandidatoModel Candidato
+        {
+            get { return _candidato; } 
+            
+            set
+            {
+                _candidato = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
+
         public ICommand GravarCommand { get; private set; }
         public ICommand LimparCommand { get; private set; }
 
 
         public CandidatoViewModel()
         {
+            Candidato = new CandidatoModel();
             GravarCommand = new Command(() =>
             {
-                var mensagem = "Gravar" + "Nome --> " + cand.NomeCandidato + "\n"
-                + "Sobrenome --> " + cand.SobrenomeCandidato + "\n"
-                + "Email --> " + cand.EmailCandidato + "\n"
-                + "Resumo Profissional --> " + cand.EditorProfissional + "\n"
-                + "Pretencao Salarial --> R$ " + cand.PretencaoCandidato + "\n";
+                var mensagem = "Nome --> " + Candidato.NomeCandidato + "\n"
+                + "Sobrenome --> " + Candidato.SobrenomeCandidato + "\n"
+                + "Email --> " + Candidato.EmailCandidato + "\n"
+                + "Resumo Profissional --> " + Candidato.EditorProfissional + "\n"
+                + "Pretencao Salarial --> R$ " + Candidato.PretencaoCandidato + "\n";
 
                 Application.Current.MainPage.DisplayAlert("Gravar", mensagem, "Ok");
 
@@ -37,20 +52,18 @@ namespace Candidato.ViewModel
 
             LimparCommand = new Command(() =>
             {
-                cand.NomeCandidato = "";
-                cand.SobrenomeCandidato = "";
-                cand.EmailCandidato = "";
-                cand.EditorProfissional = "";
-                cand.PretencaoCandidato = 0;
+                Candidato.NomeCandidato = "";
+                Candidato.SobrenomeCandidato = "";
+                Candidato.EmailCandidato = "";
+                Candidato.EditorProfissional = "";
+                Candidato.PretencaoCandidato = 0;
             });
         }
-
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-      
-        }
-    
+
+    }
 }
