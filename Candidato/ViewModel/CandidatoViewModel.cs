@@ -8,28 +8,40 @@ using Xamarin.Forms;
 using System.Windows.Input;
 using System.Security.Cryptography.X509Certificates;
 using Candidato.Views;
+using Candidato.Model;
 
 namespace Candidato.ViewModel
 {
-    public class CandidatoViewModel : INotifyPropertyChanged
+    public class CandidatoViewModel
     {
         protected CandidatoPage candidatoPage;
-        public ICommand GravarClickedCommand { get; private set; }
-        public ICommand LimparClickedCommand { get; private set; }
-  
+        CandidatoModel cand = new CandidatoModel();
+        //protected CandidatoModel candidatoModel;
+        public ICommand GravarCommand { get; private set; }
+        public ICommand LimparCommand { get; private set; }
+
 
         public CandidatoViewModel()
-        {            
-            GravarClickedCommand = new Command(() =>
+        {
+            GravarCommand = new Command(() =>
             {
-                //var mensagem = "Gravar" + candidatoPage.
-               
-                // Application.Current.MainPage.DisplayAlert("Titulo", mensagem);
+                var mensagem = "Gravar" + "Nome --> " + cand.NomeCandidato + "\n"
+                + "Sobrenome --> " + cand.SobrenomeCandidato + "\n"
+                + "Email --> " + cand.EmailCandidato + "\n"
+                + "Resumo Profissional --> " + cand.EditorProfissional + "\n"
+                + "Pretencao Salarial --> R$ " + cand.PretencaoCandidato + "\n";
+
+                Application.Current.MainPage.DisplayAlert("Gravar", mensagem, "Ok");
+
             });
 
-            LimparClickedCommand = new Command(() =>
+            LimparCommand = new Command(() =>
             {
-                
+                cand.NomeCandidato = "";
+                cand.SobrenomeCandidato = "";
+                cand.EmailCandidato = "";
+                cand.EditorProfissional = "";
+                cand.PretencaoCandidato = 0;
             });
         }
 
@@ -38,8 +50,7 @@ namespace Candidato.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-
-
-    }
+      
+        }
+    
 }

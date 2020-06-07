@@ -86,19 +86,19 @@ namespace Candidato.Model
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-     /*   public CandidatoModel()
+        
+       public CandidatoModel()
         {
         }
 
-        public CandidatoModel(String Nome, String Sobrenome, String Email, String Profissao, int PretSal)
+        public CandidatoModel(String NomeCandidato, String SobrenomeCandidato, String EmailCandidato, String EditorProfissional, int PretencaoCandidato)
         {
-            this.nomeCandidato = Nome;
-            this.sobrenomeCandidato = Sobrenome;
-            this.emailCandidato = Email;
-            this.editorProfissional = Profissao;
-            this.pretencaoCandidato = PretSal;
+            this.nomeCandidato = NomeCandidato;
+            this.sobrenomeCandidato = SobrenomeCandidato;
+            this.emailCandidato = EmailCandidato;
+            this.editorProfissional = EditorProfissional;
+            this.pretencaoCandidato = PretencaoCandidato;
         }
-     */
+     
     }
 }

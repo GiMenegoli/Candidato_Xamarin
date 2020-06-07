@@ -13,33 +13,42 @@
         <StackLayout>
             <Entry x:Name="EntryNome"
                    Placeholder="Digite o Nome"
-                   Text="{Binding Candidato.NomeCandidato}"></Entry>
+                   Text="{Binding NomeCandidato}"></Entry>
 
             <Entry x:Name="EntrySobrenome"
                    Placeholder="Digite o Sobrenome"
-                    Text="{Binding Candidato.SobrenomeCandidato}"></Entry>
+                    Text="{Binding SobrenomeCandidato}"></Entry>
 
             <Entry x:Name="EntryEmail"
                    Placeholder="Digite o e-mail"
-                    Text="{Binding Candidato.EmailCandidato}"></Entry>
+                    Text="{Binding EmailCandidato}"></Entry>
 
             <Label Text="Resumo Profissional"></Label>
-S
+
             <Editor x:Name="EditorResumoProfissional"
                     HeightRequest="50"
                     FontSize="Medium"
-                    BackgroundColor="LightGreen"
-                    Text="{Binding Candidato.EditorProfissional}"></Editor>
+                    BackgroundColor="LightGray"
+                    Text="{Binding EditorProfissional}"></Editor>
 
             <StackLayout Orientation="Horizontal">
                 <Label Text="Pretenção R$ (milhares): "></Label>
-                <Label Text="{Binding Candidato.PretencaoCandidato}" BackgroundColor="Silver" HorizontalOptions="FillAndExpand" FontSize="30"></Label>
+                <Label Text="{Binding PretencaoCandidato}" BackgroundColor="Silver" HorizontalOptions="FillAndExpand" FontSize="30"></Label>
             </StackLayout>
 
-            <Slider x:Name="SliderPretencao" Minimum="0" Maximum="20" Value="{Binding Candidato.PretencaoCandidato}"></Slider>
+            <Slider x:Name="SliderPretencao" Minimum="0" Maximum="20" Value="{Binding PretencaoCandidato}"></Slider>
 
-            <Button x:Name="BotaoGravar" Text="Gravar" BackgroundColor="Blue" Command="{Binding GravarClickedCommand}"></Button>
-            <Button x:Name="BotaoLimpar" Text="Limpar" BackgroundColor="Yellow" Command="{Binding LimparClickedCommand}"></Button>
+            <Button x:Name="BotaoGravar" 
+                    Text="Gravar" 
+                    BackgroundColor="Blue" 
+                    Command="{Binding GravarCommand}">
+                            </Button>
+            
+            <Button x:Name="BotaoLimpar" 
+                    Text="Limpar" 
+                    BackgroundColor="Yellow" 
+                    Command="{Binding LimparCommand}">                
+            </Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
