@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:Control="Candidato.Views"
+             x:Class="Candidato.Views.CandidatoPage"
+             xmlns:vm="clr-namespace:Candidato.ViewModel"
+             Title="Candidato">
+    <ContentPage.BindingContext>
+        <vm:CandidatoViewModel></vm:CandidatoViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="EntryNome"
+                   Placeholder="Digite o Nome"
+                   Text="{Binding Candidato.NomeCandidato}"></Entry>
+
+            <Entry x:Name="EntrySobrenome"
+                   Placeholder="Digite o Sobrenome"
+                    Text="{Binding Candidato.SobrenomeCandidato}"></Entry>
+
+            <Entry x:Name="EntryEmail"
+                   Placeholder="Digite o e-mail"
+                    Text="{Binding Candidato.EmailCandidato}"></Entry>
+
+            <Label Text="Resumo Profissional"></Label>
+S
+            <Editor x:Name="EditorResumoProfissional"
+                    HeightRequest="50"
+                    FontSize="Medium"
+                    BackgroundColor="LightGreen"
+                    Text="{Binding Candidato.EditorProfissional}"></Editor>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Pretenção R$ (milhares): "></Label>
+                <Label Text="{Binding Candidato.PretencaoCandidato}" BackgroundColor="Silver" HorizontalOptions="FillAndExpand" FontSize="30"></Label>
+            </StackLayout>
+
+            <Slider x:Name="SliderPretencao" Minimum="0" Maximum="20" Value="{Binding Candidato.PretencaoCandidato}"></Slider>
+
+            <Button x:Name="BotaoGravar" Text="Gravar" BackgroundColor="Blue" Command="{Binding GravarClickedCommand}"></Button>
+            <Button x:Name="BotaoLimpar" Text="Limpar" BackgroundColor="Yellow" Command="{Binding LimparClickedCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
